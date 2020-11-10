@@ -109,7 +109,7 @@ function! JavaScriptFold()
 	setl foldtext=FoldText()
 endfunction
 
-au FileType javascript call JavaScriptFold()
+" au FileType javascript call JavaScriptFold()
 
 " =====================
 " =     NerdTree设置   =
@@ -156,9 +156,10 @@ let g:user_emmet_install_global = 1
 " =====================
 " = vim-prettier 设置  =
 " =====================
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader>ff  <Plug> Prettier
+" vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 " =====================
 " =   VIM-TMUX 设置   =

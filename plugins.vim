@@ -91,8 +91,9 @@ Plug 'jiangmiao/auto-pairs'
 " 用各种符号将文字包裹起来 加双引号 加标签什么的 都能用
 Plug 'tpope/vim-surround'
 " prettier插件
-"Plug 'mitermayer/vim-prettier'
-
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x'}
 
 " === 注释类插件 ===
 " 注释插件nerdcommenter
