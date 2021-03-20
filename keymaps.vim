@@ -20,7 +20,7 @@ map <Down> <Nop>
 
 " buffer 导航
 map gbn :bnext<CR>
-map gbp :bprevious<CR
+map gbp :bprevious<CR>
 
 " 代码行上下移动快捷键设置  本来应该是<A-j> <A-k>
 " 但是在mac下Alt和字母按键会产生新的字符，所以设置快捷键需要使用特殊的字符
