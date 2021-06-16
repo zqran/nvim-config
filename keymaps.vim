@@ -114,8 +114,8 @@ map  <Leader>w <Plug>(easymotion-bd-w)
 "   <leader>j - Search current directory for occurences of word under cursor
 nmap ; :Denite buffer -split=floating -winrow=1 <CR>
 nmap <leader>p :Denite file/rec -split=floating -winrow=1<CR>
-nnoremap <leader>g :<C-u>Denite grep:. -no-empty -mode=normal<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <leader>d :<C-u>DeniteCursorWord grep:.<CR>
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
