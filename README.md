@@ -4,7 +4,7 @@ Things already been configed.
 
 1. Clone this repo to your ~/.config/nvim directory.
 ```
-git clone https://github.com/A-GG/nvim-config.git
+git clone https://github.com/A-GG/nvim-config.git ~/.config/nvim
 ```
 2. Launch nvim and run command PlugInstall
 
