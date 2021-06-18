@@ -1,0 +1,3 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/sh0105/Code/gerrit.ingageapp.com/29418/xsy-neo-ui-component/packages/example-web/src/web/pages/form'

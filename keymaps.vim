@@ -3,7 +3,7 @@
 " =====================
 " 按键设置开始
 let mapleader=','
-map <F3> <C-W>w
+" map <F3> <C-W>w
 map <F10> :sh<CR>
 
 " 窗口切换快捷键mapping
@@ -50,6 +50,10 @@ set pastetoggle=<F2>
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
 
+" =====================
+" =  NerdCommenter键盘映射  =
+" =====================
+map <c-_> :call NERDComment(0,"toggle")<cr>
 
 " =====================
 " =  Prettier键盘映射  =
@@ -132,6 +136,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
+call denite#custom#var('file/rec', 'command',
+	\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
 
 
 " =====================
@@ -143,9 +149,14 @@ endfunction
 "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 "       \ <SID>check_back_space() ? "\<TAB>" :
        " \ coc#refresh()
-inoremap <silent><expr><TAB> pumvisible() ? coc#_select_confirm() : 
- \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
+" inoremap <silent><expr><TAB> pumvisible() ? coc#_select_confirm() : 
+" \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-j>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-k>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -153,8 +164,8 @@ function! s:check_back_space() abort
 endfunction
 
 nmap <silent> <leader>jd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>jr <Plug>(coc-references)
+nmap <silent> <leader>ji <Plug>(coc-implementation)
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
  \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -185,3 +196,4 @@ nmap <Leader>a :ALEToggle<CR>
 "<Leader>d查看错误或警告的详细信息
 nmap <Leader>ad :ALEDetail<CR>
 
+map <Leader> <Plug>(easymotion-prefix)

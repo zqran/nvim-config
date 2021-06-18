@@ -21,9 +21,9 @@ Plug 'easymotion/vim-easymotion'
 " vim-tmux的窗口切换整合插件 可以非常方便的在vim的split和tmux的pane之间完成切换
 Plug 'christoomey/vim-tmux-navigator'
 " 全文搜索ACK
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 " most recently use 最常使用的文件
-Plug 'vim-scripts/mru.vim'
+" Plug 'vim-scripts/mru.vim'
 " fuzzy导航插件，文件导航，buffer导航
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
