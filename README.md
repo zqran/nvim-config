@@ -29,4 +29,5 @@ nvim
 :CocInstall coc-react-refactor
 ```
 3. Install NerdFont
-[NerdFont](https://github.com/ryanoasis/nerd-fonts) is used to display some special character, I'm using Fira Code NerdFont, you should make a choice.
+
+  [NerdFont](https://github.com/ryanoasis/nerd-fonts) is used to display some special character, I'm using Fira Code NerdFont, you should make a choice.
