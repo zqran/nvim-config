@@ -59,8 +59,10 @@ set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-"colorscheme synthwave84
+" colorscheme ayu
+colorscheme onedark
+" colorscheme material
+" colorscheme synthwave84
 
 " 高亮显示搜索结果
 set hlsearch
@@ -374,8 +376,29 @@ let g:echodoc_enable_at_startup = 1
 let g:javascript_plugin_jsdoc = 1
 set noshowmode
 
+" 设置tsx和jsx的文件类型为typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" 设置jsx标签的颜色
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+
 
 " =====================
 " =     加载键盘映射    =
 " =====================
 source ~/.config/nvim/keymaps.vim
+
+

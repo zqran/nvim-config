@@ -189,11 +189,17 @@ nmap <leader>z :JsDoc<CR>
 " =    ale键盘映射     = 
 " =====================
 "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap sp <Plug>(ale_previous_wrap)
-nmap sn <Plug>(ale_next_wrap)
+" nmap sp <Plug>(ale_previous_wrap)
+" nmap sn <Plug>(ale_next_wrap)
 "<Leader>s触发/关闭语法检查
-nmap <Leader>a :ALEToggle<CR>
+" nmap <Leader>a :ALEToggle<CR>
 "<Leader>d查看错误或警告的详细信息
-nmap <Leader>ad :ALEDetail<CR>
+" nmap <Leader>ad :ALEDetail<CR>
 
 map <Leader> <Plug>(easymotion-prefix)
+
+" =====================
+" =coc-react-refactor 键盘映射     = 
+" =====================
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)

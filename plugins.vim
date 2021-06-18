@@ -50,22 +50,23 @@ Plug 'tpope/vim-fugitive'
 
 " === 代码语法类 ===
 " VIM-MarkDown Preview
-Plug 'suan/vim-instant-markdown'
+" Plug 'suan/vim-instant-markdown'
 " yaml 语法支持
 Plug 'chase/vim-ansible-yaml'
 " emmet语法支持
 Plug 'mattn/emmet-vim'
 " JSX支持
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
 " TypeScript支持
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " Vue 支持
 Plug 'posva/vim-vue'
 " Node.js 支持
 Plug 'moll/vim-node'
 " ale语法检测
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 
 " === 代码片段插件 ===
@@ -119,6 +120,10 @@ Plug 'artanikin/vim-synthwave84'
 Plug 'farseer90718/flattr.vim'
 " vim ayu颜色主题
 Plug 'ayu-theme/ayu-vim'
+" onedark 颜色主题
+Plug 'joshdick/onedark.vim'
+" material 颜色主题
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " 缩进级别 标识线
 Plug 'Yggdroot/indentLine'
 " nerdtree语法高亮
