@@ -6,8 +6,9 @@ Things already been configed.
 ```bash
 git clone https://github.com/A-GG/nvim-config.git ~/.config/nvim
 ```
-2. Launch nvim and run command PlugInstall
+2. Install & Launch nvim & run command PlugInstall
 ```bash
+brew install nvim
 nvim
 :PlugInstall
 ```
