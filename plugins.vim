@@ -10,12 +10,13 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 " === 编辑器相关工具 === 
+" Plug  '907th/vim-auto-save'
 " 类似于资源管理器
 Plug 'scrooloose/nerdtree'
 " 模糊搜索工具fzf，需要先使用HomeBrew安装fzf
 " 当然也可以不使用HomeBrew安装fzf，但是需要使用别的方式来使用fzf
 " Plugin '/usr/local/opt/fzf'
-"Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
 " 快速移动插件
 Plug 'easymotion/vim-easymotion'
 " vim-tmux的窗口切换整合插件 可以非常方便的在vim的split和tmux的pane之间完成切换
