@@ -193,6 +193,7 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -206,7 +207,9 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
-let g:airline_theme='ayu'
+" let g:airline_theme='ayu'
+" let g:airline_theme='material'
+let g:airline_theme='onedark'
 
 
 " =====================
@@ -331,6 +334,9 @@ endif
 " let g:coc_snippet_next = "<tab>"
 let g:UltiSnipsExpandTrigger="<leader>io"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
+" easymotion的时候关掉禁用coc不然lint出问题
+autocmd User EasyMotionPromptBegin silent! CocDisable
+autocmd User EasyMotionPromptEnd silent! CocEnable
 
 "
 " =====================
