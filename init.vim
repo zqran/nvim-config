@@ -401,7 +401,7 @@ hi tsxEqual guifg=#F99575
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 
-" let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 1  " enable AutoSave on Vim startup
 
 
 " =====================

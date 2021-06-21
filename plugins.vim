@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 
 " === 编辑器相关工具 === 
-" Plug  '907th/vim-auto-save'
+Plug  '907th/vim-auto-save'
 " 类似于资源管理器
 Plug 'scrooloose/nerdtree'
 " 模糊搜索工具fzf，需要先使用HomeBrew安装fzf
@@ -91,7 +91,7 @@ Plug 'terryma/vim-multiple-cursors'
 " autoPair自动配对括号什么的
 Plug 'jiangmiao/auto-pairs'
 " 写css用的
-Plug 'rstacruz/vim-hyperstyle'
+" Plug 'rstacruz/vim-hyperstyle'
 " 用各种符号将文字包裹起来 加双引号 加标签什么的 都能用
 Plug 'tpope/vim-surround'
 " prettier插件
