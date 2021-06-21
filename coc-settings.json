@@ -3,11 +3,11 @@
   "suggest.maxCompleteItemCount": 20,
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact"
+    "j--avascript",
+    "t--ypescript",
+    "t--ypescriptreact",
+    "j--son",
+    "j--avascriptreact"
   ],
   "eslint.filetypes": [
     "javascript",
@@ -20,8 +20,14 @@
   "diagnostic.infoSign": "•",
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.filetypes": ["javascript", "javascriptreact", "html"],
-  "eslint.options": {"configFile": ".eslintrc.js"},
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "html"
+  ],
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  },
   "prettier.singleQuote": true,
   "prettier.semi": false
 }

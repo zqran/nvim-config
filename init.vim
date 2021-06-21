@@ -408,5 +408,9 @@ hi tsxAttrib guifg=#F8BD7F cterm=italic
 " =     加载键盘映射    =
 " =====================
 source ~/.config/nvim/keymaps.vim
+" =====================
+" =     加Prettier默认规则=
+" =====================
+source ~/.config/nvim/prettier.vim
 
 

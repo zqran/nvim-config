@@ -90,6 +90,8 @@ Plug 'neoclide/coc.nvim'
 Plug 'terryma/vim-multiple-cursors'
 " autoPair自动配对括号什么的
 Plug 'jiangmiao/auto-pairs'
+" 写css用的
+Plug 'rstacruz/vim-hyperstyle'
 " 用各种符号将文字包裹起来 加双引号 加标签什么的 都能用
 Plug 'tpope/vim-surround'
 " prettier插件
