@@ -101,14 +101,14 @@ set showcmd
 " JavaScript 代码自动折叠
 " =====================
 function! JavaScriptFold()
-	setl foldmethod=syntax
-	setl foldlevelstart=1
-	syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+  setl foldmethod=syntax
+  setl foldlevelstart=1
+  syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
 
-	function! FoldText()
-		return substitute(getline(v:foldstart), '{.*', '{...}', '')
-	endfunction
-	setl foldtext=FoldText()
+  function! FoldText()
+    return substitute(getline(v:foldstart), '{.*', '{...}', '')
+  endfunction
+  setl foldtext=FoldText()
 endfunction
 
 " au FileType javascript call JavaScriptFold()
@@ -127,23 +127,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " =   浏览器中预览设置   =
 " =====================
 function! ViewInBrowser(name)
-    let file = expand("%:p")
-    let l:browsers = {
+  let file = expand("%:p")
+  let l:browsers = {
         \"cr":"open -a \"Google Chrome\"",
         \"ff":"open -a Firefox",
-    \}
-    let htdocs='/Users/leon1/'
-    let strpos = stridx(file, substitute(htdocs, '\\\\', '\', "g"))
-    let file = '"'. file . '"'
-    exec ":update " .file
-    "echo file .' ## '. htdocs
-    if strpos == -1
-        exec ":silent ! ". l:browsers[a:name] ." file://". file
-    else
-        let file=substitute(file, htdocs, "http://127.0.0.1:8090/", "g")
-        let file=substitute(file, '\\', '/', "g")
-        exec ":silent ! ". l:browsers[a:name] file
-    endif
+        \}
+  let htdocs='/Users/leon1/'
+  let strpos = stridx(file, substitute(htdocs, '\\\\', '\', "g"))
+  let file = '"'. file . '"'
+  exec ":update " .file
+  "echo file .' ## '. htdocs
+  if strpos == -1
+    exec ":silent ! ". l:browsers[a:name] ." file://". file
+  else
+    let file=substitute(file, htdocs, "http://127.0.0.1:8090/", "g")
+    let file=substitute(file, '\\', '/', "g")
+    exec ":silent ! ". l:browsers[a:name] file
+  endif
 endfunction
 nmap <Leader>cr :call ViewInBrowser("cr")<cr
 
@@ -200,7 +200,7 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
+  let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
@@ -252,65 +252,65 @@ highlight GitGutterChangeDelete ctermfg=yellow
 " =    Denite 设置    =
 " =====================
 try
-" 先去下载这玩意儿：https://github.com/BurntSushi/ripgrep#installation
-" Use ripgrep for searching current directory for files
-" By default, ripgrep will respect rules in .gitignore
-"   --files: Print each file that would be searched (but don't search)
-"   --glob:  Include or exclues files for searching that match the given glob
-"            (aka ignore .git files)
-"
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--glob', '!node_modules'])
+  " 先去下载这玩意儿：https://github.com/BurntSushi/ripgrep#installation
+  " Use ripgrep for searching current directory for files
+  " By default, ripgrep will respect rules in .gitignore
+  "   --files: Print each file that would be searched (but don't search)
+  "   --glob:  Include or exclues files for searching that match the given glob
+  "            (aka ignore .git files)
+  "
+  call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--glob', '!node_modules'])
 
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
+  " Use ripgrep in place of "grep"
+  call denite#custom#var('grep', 'command', ['rg'])
 
-" Custom options for ripgrep
-"   --vimgrep:  Show results with every match on it's own line
-"   --hidden:   Search hidden directories and files
-"   --heading:  Show the file name above clusters of matches from each file
-"   --S:        Search case insensitively if the pattern is all lowercase
-call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+  " Custom options for ripgrep
+  "   --vimgrep:  Show results with every match on it's own line
+  "   --hidden:   Search hidden directories and files
+  "   --heading:  Show the file name above clusters of matches from each file
+  "   --S:        Search case insensitively if the pattern is all lowercase
+  call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
 
-" Recommended defaults for ripgrep via Denite docs
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+  " Recommended defaults for ripgrep via Denite docs
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
 
-" Remove date from buffer list
-call denite#custom#var('buffer', 'date_format', '')
+  " Remove date from buffer list
+  call denite#custom#var('buffer', 'date_format', '')
 
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-let s:denite_options = {'default' : {
-\ 'auto_resize': 1,
-\ 'prompt': 'ƛ:',
-\ 'direction': 'rightbelow',
-\ 'winminheight': '10',
-\ 'highlight_mode_insert': 'Visual',
-\ 'highlight_mode_normal': 'Visual',
-\ 'prompt_highlight': 'Function',
-\ 'highlight_matched_char': 'Function',
-\ 'highlight_matched_range': 'Normal'
-\ }}
+  " Custom options for Denite
+  "   auto_resize             - Auto resize the Denite window height automatically.
+  "   prompt                  - Customize denite prompt
+  "   direction               - Specify Denite window direction as directly below current pane
+  "   winminheight            - Specify min height for Denite window
+  "   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+  "   prompt_highlight        - Specify color of prompt
+  "   highlight_matched_char  - Matched characters highlight
+  "   highlight_matched_range - matched range highlight
+  let s:denite_options = {'default' : {
+        \ 'auto_resize': 1,
+        \ 'prompt': 'ƛ:',
+        \ 'direction': 'rightbelow',
+        \ 'winminheight': '10',
+        \ 'highlight_mode_insert': 'Visual',
+        \ 'highlight_mode_normal': 'Visual',
+        \ 'prompt_highlight': 'Function',
+        \ 'highlight_matched_char': 'Function',
+        \ 'highlight_matched_range': 'Normal'
+        \ }}
 
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+  " Loop through denite options and enable them
+  function! s:profile(opts) abort
+    for l:fname in keys(a:opts)
+      for l:dopt in keys(a:opts[l:fname])
+        call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+      endfor
     endfor
-  endfor
-endfunction
+  endfunction
 
-call s:profile(s:denite_options)
+  call s:profile(s:denite_options)
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
@@ -430,3 +430,19 @@ endif
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
+
+
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+"       \ 'Modified'  :'✹',
+"       \ 'Staged'    :'✚',
+"       \ 'Untracked' :'✭',
+"       \ 'Renamed'   :'➜',
+"       \ 'Unmerged'  :'═',
+"       \ 'Deleted'   :'✖',
+"       \ 'Dirty'     :'✗',
+"       \ 'Ignored'   :'☒',
+"       \ 'Clean'     :'✔︎',
+"       \ 'Unknown'   :'?',
+"       \ }
+"
+let g:NERDTreeGitStatusUseNerdFonts = 1

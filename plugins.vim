@@ -13,6 +13,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug  '907th/vim-auto-save'
 " 类似于资源管理器
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " 模糊搜索工具fzf，需要先使用HomeBrew安装fzf
 " 当然也可以不使用HomeBrew安装fzf，但是需要使用别的方式来使用fzf
 " Plugin '/usr/local/opt/fzf'
@@ -46,7 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 " Git插件
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 
 " === 代码语法类 ===

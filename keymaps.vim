@@ -250,3 +250,9 @@ map <Leader> <Plug>(easymotion-prefix)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
+
+" =====================
+" = GitGutter 键盘映射     = 
+" =====================
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
