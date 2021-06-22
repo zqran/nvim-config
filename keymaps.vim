@@ -195,9 +195,13 @@ hi! link CocInfoSign Type
 " nnoremap <silent> K :call CocAction('doHover')<CR>
 
 function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_float() == 0 && (&ft == 'javascript' || &ft == 'typescript' || &ft == 'javascriptreact' || &ft == 'typescriptreact'))
-    silent call CocActionAsync('doHover')
-  endif
+  try
+    if (coc#float#has_float() == 0 && (&ft == 'javascript' || &ft == 'typescript' || &ft == 'javascriptreact' || &ft == 'typescriptreact'))
+      silent call CocActionAsync('doHover')
+    endif
+  catch
+    echo "COC没装吧，兄弟"
+  endtry
 endfunction
 
 function! s:show_hover_doc()
