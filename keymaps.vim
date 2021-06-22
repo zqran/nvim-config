@@ -143,12 +143,6 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <C-h>
   \ denite#do_map('do_action', 'split')
 endfunction
-call denite#custom#var('file/rec', 'command',
-	\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
-      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
-
 
 " =====================
 " = Coc.nvim 键盘映射  = 

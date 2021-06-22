@@ -46,6 +46,9 @@ set cmdheight=1
 set tabstop=2
 set autoindent
 
+" 一直显示 signcolumn
+set signcolumn=yes
+
 " === Completion Settings === "
 " Don't give completion messages like 'match 1 of 2'
 " or 'The only match'
@@ -242,11 +245,21 @@ let g:NERDToggleCheckAllLines = 1
 " =====================
 " =   GitGutter 设置   =
 " =====================
+set updatetime=250
+let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_highlight_lines = 0
 highlight clear SignColumn
-highlight GitGutterAdd ctermfg=green
-highlight GitGutterChange ctermfg=yellow
-highlight GitGutterDelete ctermfg=red
-highlight GitGutterChangeDelete ctermfg=yellow
+highlight GitGutterAdd ctermfg=green guifg=green
+highlight GitGutterChange ctermfg=yellow guifg=yellow
+highlight GitGutterDelete ctermfg=red guifg=red
+highlight GitGutterChangeDelete ctermfg=yellow guifg=yellow
+
+" let g:gitgutter_sign_added = '+'
+" let g:gitgutter_sign_modified = 'yy'
+" let g:gitgutter_sign_removed = 'zz'
+" let g:gitgutter_sign_removed_first_line = '^^'
+" let g:gitgutter_sign_removed_above_and_below = '{'
+" let g:gitgutter_sign_modified_removed = 'ww'
 
 " =====================
 " =    Denite 设置    =
@@ -260,7 +273,9 @@ try
   "            (aka ignore .git files)
   "
   call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '--glob', '!node_modules'])
-
+  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
   " Use ripgrep in place of "grep"
   call denite#custom#var('grep', 'command', ['rg'])
 
@@ -383,7 +398,9 @@ let g:javascript_plugin_jsdoc = 1
 set noshowmode
 
 " 设置tsx和jsx的文件类型为typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
 
 " 设置jsx标签的颜色
 " dark red
@@ -401,7 +418,7 @@ hi tsxEqual guifg=#F99575
 " yellow
 hi tsxAttrib guifg=#F8BD7F cterm=italic
 
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 0  " enable AutoSave on Vim startup
 
 
 " =====================
@@ -422,7 +439,7 @@ let g:jsdoc_formatter = 'tsdoc'
 "  coc 插件  "
 """"""
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-styled-components', 'coc-react-refactor']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-prettier', 'coc-styled-components', 'coc-react-refactor', 'jest-snippets']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
