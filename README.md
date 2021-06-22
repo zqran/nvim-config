@@ -20,14 +20,6 @@ if you dont know how to install pip2 in your mac, go [here](https://agg.me/2021%
 pip2 install pynvim
 pip3 install pynvim
 ```
-2. Install Coc_ things
-```bash
-nvim
-:CocInstall coc-tsserver
-:CocInstall coc-eslint
-:CocInstall coc-styled-components
-:CocInstall coc-react-refactor
-```
-3. Install NerdFont
+2. Install NerdFont
 
   [NerdFont](https://github.com/ryanoasis/nerd-fonts) is used to display some special character, I'm using Fira Code NerdFont, you should make a choice.
