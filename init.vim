@@ -413,4 +413,20 @@ source ~/.config/nvim/keymaps.vim
 " =====================
 source ~/.config/nvim/prettier.vim
 
+""""""
+"  jsdoc"
+""""""
+let g:jsdoc_formatter = 'tsdoc'
 
+""""""
+"  coc 插件  "
+""""""
+
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier', 'coc-styled-components', 'coc-react-refactor']
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif

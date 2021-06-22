@@ -120,6 +120,7 @@ nmap ; :Denite buffer -split=floating -winrow=1 <CR>
 nmap <leader>p :Denite file/rec -split=floating -winrow=1<CR>
 nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
 nnoremap <leader>d :<C-u>DeniteCursorWord grep:.<CR>
+nmap <leader>t :DeniteProjectDir file/rec<CR>
 
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -131,13 +132,22 @@ function! s:denite_my_settings() abort
   \ denite#do_map('do_action', 'preview')
   nnoremap <silent><buffer><expr> q
   \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> <Esc>
+  \ denite#do_map('quit')
   nnoremap <silent><buffer><expr> i
   \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
+  nnoremap <silent><buffer><expr> <C-v>
+  \ denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> <C-h>
+  \ denite#do_map('do_action', 'split')
 endfunction
 call denite#custom#var('file/rec', 'command',
 	\ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
 
 
 " =====================
@@ -152,20 +162,34 @@ call denite#custom#var('file/rec', 'command',
 " inoremap <silent><expr><TAB> pumvisible() ? coc#_select_confirm() : 
 " \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-j>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-k>" : "\<C-h>"
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-j>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-k>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+let g:coc_snippet_next = '<tab>'
+
 nmap <silent> <leader>jd <Plug>(coc-definition)
 nmap <silent> <leader>jr <Plug>(coc-references)
 nmap <silent> <leader>ji <Plug>(coc-implementation)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
  \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -174,10 +198,32 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 
+" nnoremap <silent> K :call CocAction('doHover')<CR>
+
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && (&ft == 'javascript' || &ft == 'typescript' || &ft == 'javascriptreact' || &ft == 'typescriptreact'))
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+
+
 "   <Space> - PageDown
 "   -       - PageUp
-noremap <Space> <PageDown>
-noremap - <PageUp>
+" noremap <Space> <PageDown>
+" noremap - <PageUp>
 
 
 " =====================
@@ -203,3 +249,4 @@ map <Leader> <Plug>(easymotion-prefix)
 " =====================
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
+

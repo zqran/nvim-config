@@ -62,6 +62,11 @@ Plug 'pangloss/vim-javascript'
 " TypeScript支持
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+" styled-component 支持
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" graphql 支持
+Plug 'jparise/vim-graphql'
 " Vue 支持
 Plug 'posva/vim-vue'
 " Node.js 支持
@@ -95,15 +100,16 @@ Plug 'jiangmiao/auto-pairs'
 " 用各种符号将文字包裹起来 加双引号 加标签什么的 都能用
 Plug 'tpope/vim-surround'
 " prettier插件
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x'}
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " === 注释类插件 ===
 " 注释插件nerdcommenter
 Plug 'scrooloose/nerdcommenter'
 " JsDoc js文档注释插件 
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript', 'typescriptreact', 'javascriptreact'], 
+  \ 'do': 'make install'
+\}
 " 显示文档插件（api提示）
 Plug 'Shougo/echodoc.vim'
 

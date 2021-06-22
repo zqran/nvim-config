@@ -29,5 +29,6 @@
     "configFile": ".eslintrc.js"
   },
   "prettier.singleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "list.source.files.defaultOptions": ["--number-select"]
 }
