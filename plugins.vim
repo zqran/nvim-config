@@ -40,7 +40,8 @@ Plug 'junegunn/vim-emoji'
 Plug 'pocari/vim-denite-emoji'
 " ZenMode 支持
 Plug 'junegunn/goyo.vim'
-" submode 
+" submode 这个和keymap设置配合之后，可以只按一次c-w 紧接着快速按 - + < > 
+" 非常方便的更改split的宽和高 很爽
 Plug 'kana/vim-submode'
 
 " === Git相关插件 ===
