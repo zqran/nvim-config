@@ -254,9 +254,9 @@ highlight GitGutterChange ctermfg=yellow guifg=yellow
 highlight GitGutterDelete ctermfg=red guifg=red
 highlight GitGutterChangeDelete ctermfg=yellow guifg=yellow
 
-" let g:gitgutter_sign_added = '+'
-" let g:gitgutter_sign_modified = 'yy'
-" let g:gitgutter_sign_removed = 'zz'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
 " let g:gitgutter_sign_removed_first_line = '^^'
 " let g:gitgutter_sign_removed_above_and_below = '{'
 " let g:gitgutter_sign_modified_removed = 'ww'
