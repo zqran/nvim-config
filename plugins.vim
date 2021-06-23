@@ -47,7 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 " Git插件
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 
 " === 代码语法类 ===
