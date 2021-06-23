@@ -38,7 +38,10 @@ endif
 Plug 'junegunn/vim-emoji'
 " fuzzy emoji
 Plug 'pocari/vim-denite-emoji'
-
+" ZenMode 支持
+Plug 'junegunn/goyo.vim'
+" submode 
+Plug 'kana/vim-submode'
 
 " === Git相关插件 ===
 " diffgutter 差异插件
