@@ -57,7 +57,11 @@ Plug 'tpope/vim-fugitive'
 
 " === 代码语法类 ===
 " VIM-MarkDown Preview
+Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
 " Plug 'suan/vim-instant-markdown'
+Plug 'jxnblk/vim-mdx-js'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 " yaml 语法支持
 Plug 'chase/vim-ansible-yaml'
 " emmet语法支持

@@ -469,3 +469,5 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 "     \ "Clean"     : "#87939A",
 "     \ "Ignored"   : "#808080"
 "     \ }
+"
+let g:vim_markdown_folding_disabled = 1
