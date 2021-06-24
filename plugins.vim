@@ -14,6 +14,7 @@ Plug  '907th/vim-auto-save'
 " 类似于资源管理器
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'tsony-tsonev/nerdtree-git-plugin'
 " 模糊搜索工具fzf，需要先使用HomeBrew安装fzf
 " 当然也可以不使用HomeBrew安装fzf，但是需要使用别的方式来使用fzf
 " Plugin '/usr/local/opt/fzf'

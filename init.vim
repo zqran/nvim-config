@@ -353,25 +353,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
 
-"
-" =====================
-" =      ale 设置     =
-" =====================
-"始终开启标志列
-" let g:ale_sign_column_always = 1
-" let g:ale_set_highlights = 0
-"自定义error和warning图标
-" let g:ale_sign_error = '✗'
-" let g:ale_sign_warning = '⚡'
-"在vim自带的状态栏中整合ale
-" let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
-"显示Linter名称,出错或警告等相关信息
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_error_str = '✗d'
-"显示Linter名称,出错或警告等相关信息
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
 
 " =====================
 " =   neosnippet 设置  =
@@ -449,17 +430,42 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
 endif
 
 
-" let g:NERDTreeGitStatusIndicatorMapCustom = {
-"       \ 'Modified'  :'✹',
-"       \ 'Staged'    :'✚',
-"       \ 'Untracked' :'✭',
-"       \ 'Renamed'   :'➜',
-"       \ 'Unmerged'  :'═',
-"       \ 'Deleted'   :'✖',
-"       \ 'Dirty'     :'✗',
-"       \ 'Ignored'   :'☒',
-"       \ 'Clean'     :'✔︎',
-"       \ 'Unknown'   :'?',
-"       \ }
-"
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+      \ 'Modified'  :'M',
+      \ 'Staged'    :'A',
+      \ 'Untracked' :'U',
+      \ 'Renamed'   :'➜',
+      \ 'Unmerged'  :'═',
+      \ 'Deleted'   :'D',
+      \ 'Dirty'     :'•',
+      \ 'Ignored'   :'☒',
+      \ 'Clean'     :'✔︎',
+      \ 'Unknown'   :'?',
+      \ }
+
 let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" let g:NERDTreeGitStatusWithFlags = 1
+" let g:NERDTreeIndicatorMapCustom = {
+"       \ 'Modified'  :'M',
+"       \ 'Staged'    :'A',
+"       \ 'Untracked' :'U',
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ 'Ignored'   : '☒',
+"     \ "Unknown"   : "?"
+"     \ }
+" let g:WebDevIconsUnicodeDecorateFolderNodes = 0
+" let g:NERDTreeGitStatusNodeColorization = 1
+" let g:NERDTreeColorMapCustom = {
+"     \ "Modified"  : "#528AB3",
+"     \ "Staged"    : "#538B54",
+"     \ "Untracked" : "#BE5849",
+"     \ "Dirty"     : "#299999",
+"     \ "Clean"     : "#87939A",
+"     \ "Ignored"   : "#808080"
+"     \ }
