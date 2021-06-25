@@ -28,5 +28,6 @@
   },
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "list.source.files.defaultOptions": ["--number-select"]
+  "list.source.files.defaultOptions": ["--number-select"],
+  "explorer.icon.enableNerdfont" : true
 }

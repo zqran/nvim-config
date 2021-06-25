@@ -47,8 +47,10 @@ set pastetoggle=<F2>
 " =====================
 " =  NerdTree键盘映射  =
 " =====================
-map <leader>nn :NERDTreeToggle<cr>
-map <leader>nf :NERDTreeFind<cr>
+" map <leader>n :NERDTreeToggle<cr>
+" map <leader>f :NERDTreeFind<cr>
+
+:nnoremap <leader>n :CocCommand explorer<CR>
 
 " =====================
 " =  NerdCommenter键盘映射  =

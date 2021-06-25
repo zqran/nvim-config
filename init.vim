@@ -116,15 +116,6 @@ endfunction
 
 " au FileType javascript call JavaScriptFold()
 
-" =====================
-" =     NerdTree设置   =
-" =====================
-let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=0
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=20
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 " =====================
 " =   浏览器中预览设置   =
@@ -407,7 +398,7 @@ let g:auto_save = 0  " enable AutoSave on Vim startup
 " =====================
 source ~/.config/nvim/keymaps.vim
 " =====================
-" =     加Prettier默认规则=
+" =加载Prettier默认规则=
 " =====================
 source ~/.config/nvim/prettier.vim
 
@@ -420,7 +411,7 @@ let g:jsdoc_formatter = 'tsdoc'
 "  coc 插件  "
 """"""
 
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-prettier', 'coc-styled-components', 'coc-react-refactor', 'jest-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-prettier', 'coc-styled-components', 'coc-react-refactor', 'jest-snippets', 'coc-explorer']
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
@@ -431,43 +422,3 @@ endif
 
 
 
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-      \ 'Modified'  :'M',
-      \ 'Staged'    :'A',
-      \ 'Untracked' :'U',
-      \ 'Renamed'   :'➜',
-      \ 'Unmerged'  :'═',
-      \ 'Deleted'   :'D',
-      \ 'Dirty'     :'•',
-      \ 'Ignored'   :'☒',
-      \ 'Clean'     :'✔︎',
-      \ 'Unknown'   :'?',
-      \ }
-
-let g:NERDTreeGitStatusUseNerdFonts = 1
-
-" let g:NERDTreeGitStatusWithFlags = 1
-" let g:NERDTreeIndicatorMapCustom = {
-"       \ 'Modified'  :'M',
-"       \ 'Staged'    :'A',
-"       \ 'Untracked' :'U',
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "✖",
-"     \ "Dirty"     : "✗",
-"     \ "Clean"     : "✔︎",
-"     \ 'Ignored'   : '☒',
-"     \ "Unknown"   : "?"
-"     \ }
-" let g:WebDevIconsUnicodeDecorateFolderNodes = 0
-" let g:NERDTreeGitStatusNodeColorization = 1
-" let g:NERDTreeColorMapCustom = {
-"     \ "Modified"  : "#528AB3",
-"     \ "Staged"    : "#538B54",
-"     \ "Untracked" : "#BE5849",
-"     \ "Dirty"     : "#299999",
-"     \ "Clean"     : "#87939A",
-"     \ "Ignored"   : "#808080"
-"     \ }
-"
-let g:vim_markdown_folding_disabled = 1
