@@ -16,11 +16,9 @@ Plug  '907th/vim-auto-save'
 Plug 'easymotion/vim-easymotion'
 " vim-tmux的窗口切换整合插件 可以非常方便的在vim的split和tmux的pane之间完成切换
 Plug 'christoomey/vim-tmux-navigator'
-" 全文搜索ACK
-" Plug 'mileszs/ack.vim'
-" most recently use 最常使用的文件
-" Plug 'vim-scripts/mru.vim'
-" fuzzy导航插件，文件导航，buffer导航
+
+" denite 很屌，弹窗，文件导航什么的都很好用
+" Denite is a dark powered plugin for Neovim/Vim to unite all interfaces.
 if has('nvim')
   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -76,9 +74,6 @@ Plug 'jparise/vim-graphql'
 Plug 'posva/vim-vue'
 " Node.js 支持
 Plug 'moll/vim-node'
-" ale语法检测
-" Plug 'w0rp/ale'
-
 
 " === 代码片段插件 ===
 " neo代码段插件
@@ -141,7 +136,7 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " 缩进级别 标识线
 Plug 'Yggdroot/indentLine'
 " nerdtree语法高亮
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " 启动画面
 Plug 'mhinz/vim-startify'
 " 图标插件
